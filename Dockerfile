@@ -3,9 +3,9 @@ FROM php:7.1.21-fpm
 MAINTAINER neo <liang.gong@gmail.com>
 
 #change apt source for chinese area users
-RUN echo "deb http://mirrors.ustc.edu.cn/debian jessie main non-free contrib" > /etc/apt/sources.list \
-  && echo "deb http://mirrors.ustc.edu.cn/debian jessie-updates main non-free contrib" >> /etc/apt/sources.list \
-  && echo "deb http://mirrors.ustc.edu.cn/debian jessie-proposed-updates main contrib non-free" >> /etc/apt/sources.list 
+#RUN echo "deb http://mirrors.ustc.edu.cn/debian jessie main non-free contrib" > /etc/apt/sources.list \
+#  && echo "deb http://mirrors.ustc.edu.cn/debian jessie-updates main non-free contrib" >> /etc/apt/sources.list \
+#  && echo "deb http://mirrors.ustc.edu.cn/debian jessie-proposed-updates main contrib non-free" >> /etc/apt/sources.list 
 
 #fix docker-php-ext-install bug
 RUN sed -i 's/docker-php-\(ext-$ext.ini\)/\1/' /usr/local/bin/docker-php-ext-install
