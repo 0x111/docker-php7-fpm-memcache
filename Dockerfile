@@ -12,7 +12,7 @@ RUN sed -i 's/docker-php-\(ext-$ext.ini\)/\1/' /usr/local/bin/docker-php-ext-ins
 
 # Install memcache extension
 RUN set -x \
-    && apt-get update && apt-get install -y unzip libssl-dev libpcre3 libpcre3-dev \
+    && apt-get update && apt-get install -y unzip libssl-dev libpcre3 libpcre3-dev zlib1g-dev \
     && cd /tmp \
     && curl -sSL -o php7.zip https://github.com/websupport-sk/pecl-memcache/archive/php7.zip \
     && unzip php7 \
