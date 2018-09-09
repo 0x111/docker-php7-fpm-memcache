@@ -46,18 +46,18 @@ RUN buildDeps=" \
 	&& docker-php-ext-install mysqli \
 	&& docker-php-ext-install pdo_mysql \
 	&& docker-php-ext-install zip \
-	&& apt-get purge -y --auto-remove $buildDeps \
-	&& cd /usr/src/php \
-	&& make clean
+	&& apt-get purge -y --auto-remove $buildDeps
+#	&& cd /usr/src/php \
+#	&& make clean
 
 # Install Composer for Laravel
 RUN curl -sS https://getcomposer.org/installer | php \
     && mv composer.phar /usr/local/bin/composer
 
 # Setup timezone to Etc/UTC
-RUN cat /usr/src/php/php.ini-production | sed 's/^;\(date.timezone.*\)/\1 \"Etc\/UTC\"/' > /usr/local/etc/php/php.ini
+#RUN cat /usr/src/php/php.ini-production | sed 's/^;\(date.timezone.*\)/\1 \"Etc\/UTC\"/' > /usr/local/etc/php/php.ini
 
 # Disable cgi.fix_pathinfo in php.ini
-RUN sed -i 's/;\(cgi\.fix_pathinfo=\)1/\10/' /usr/local/etc/php/php.ini
+#RUN sed -i 's/;\(cgi\.fix_pathinfo=\)1/\10/' /usr/local/etc/php/php.ini
 
 WORKDIR /var/www
